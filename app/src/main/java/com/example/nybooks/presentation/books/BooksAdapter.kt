@@ -9,12 +9,13 @@ import com.example.nybooks.data.model.Book
 import kotlinx.android.synthetic.main.item_book.view.*
 
 class BooksAdapter(
-    private val books: List<Book>
+    private val books: List<Book>,
+    val onItemClickListener: ((book: Book) -> Unit)
 ) : RecyclerView.Adapter<BooksAdapter.BooksViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, itemView: Int): BooksViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_book, parent, false)
-        return BooksViewHolder(view)
+        return BooksViewHolder(view,onItemClickListener)
     }
 
     override fun getItemCount() = books.count()
@@ -23,7 +24,10 @@ class BooksAdapter(
         viewHolder.bindView(books[position])
     }
 
-    class BooksViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class BooksViewHolder(
+        view: View,
+        private val onItemClickListener: ((book: Book) -> Unit)
+    ) : RecyclerView.ViewHolder(view) {
 
         private val title = view.textTitle
         private val author = view.textAuthor
@@ -31,6 +35,10 @@ class BooksAdapter(
         fun bindView(book: Book) {
             title.text = book.title
             author.text = book.author
+
+            itemView.setOnClickListener {
+                onItemClickListener.invoke(book)
+            }
         }
     }
 }
