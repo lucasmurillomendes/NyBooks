@@ -5,34 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.details.BookDetailsActivity"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
+
+    <include layout="@layout/include_toolbar" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textStyle="bold"
+        style="@style/MyTextViewLabel"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/book_details_title_label"/>
     <TextView
         android:id="@+id/bookDetailsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         tools:text="Title 1"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_marginTop="8dp"
-        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        style="@style/MyTextViewLabel"
         android:text="@string/book_details_description_label"/>
     <TextView
         android:id="@+id/booksDetailsDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
         tools:text="Description 1"
         />
 </LinearLayout>

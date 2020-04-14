@@ -16,6 +16,7 @@
     </style>
 
     <style name="MyTextViewLabel">
+        <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
     </style>
 
